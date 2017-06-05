@@ -1,5 +1,9 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto');
 body{
-    background-color: #1ABC9C;
+    font-family: Roboto, sans-serif;
+}
+ul.list-inline li{
+    font-size: 20px;
 }
 .spinner {
     display: none;
