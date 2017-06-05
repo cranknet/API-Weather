@@ -10,7 +10,7 @@ function getIPInfo() {
           $(".spinner").fadeIn(2000);
         },
         success: function (iPDATA) {
-            console.log(iPDATA);
+            //console.log(iPDATA);
             var Longitude = iPDATA.lon;
             var Latitude = iPDATA.lat;
             var weatherURL = "https://api.darksky.net/forecast/1c5a660a1db62d4d3a423f21f1ae089b/"+ Latitude + "," + Longitude + "?exclude=hourly,daily,flags";
@@ -28,7 +28,7 @@ function getWeather(URL) {
         url: URL,
         dataType: 'jsonp',
         success: function (wDATA) {
-            console.log(wDATA);
+            //console.log(wDATA);
             // Start Forcast Icons Canvas
             var wICON = new Skycons();
             wICON.add("weatherICON", wDATA.currently.icon);
