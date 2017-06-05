@@ -53,7 +53,7 @@ function getWeather(URL) {
     function changeCF(temp) {
         function setCelsius() {
             var cel = (temp - 32) * 5/9;
-            return cel;
+            return Math.round(cel);
         }
         function setFahrenheit() {
             return temp;
