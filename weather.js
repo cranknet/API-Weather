@@ -1,5 +1,5 @@
 
-var ipURL  = "http://ip-api.com/json";
+var ipURL  = "https://freegeoip.net/json/";
 // Get IP Info from IP-API.com
 function getIPInfo() {
     $.ajax({
@@ -11,11 +11,11 @@ function getIPInfo() {
         },
         success: function (iPDATA) {
             //console.log(iPDATA);
-            var Longitude = iPDATA.lon;
-            var Latitude = iPDATA.lat;
+            var Longitude = iPDATA.longitude;
+            var Latitude = iPDATA.latitude;
             var weatherURL = "https://api.darksky.net/forecast/1c5a660a1db62d4d3a423f21f1ae089b/"+ Latitude + "," + Longitude + "?exclude=hourly,daily,flags";
             getWeather(weatherURL);
-            $(".info").fadeIn(2000).html(iPDATA.city + ", " + iPDATA.country);
+            $(".info").fadeIn(2000).html(iPDATA.city + ", " + iPDATA.country_name);
             $(".spinner").fadeOut(1000);
 
         }
