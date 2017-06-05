@@ -1,6 +1,5 @@
 
 var ipURL  = "https://freegeoip.net/json/";
-// Get IP Info from IP-API.com
 function getIPInfo() {
     $.ajax({
         type: 'GET',
@@ -46,10 +45,7 @@ function getWeather(URL) {
 
     });
 }
-
 ///////////////////////////
-
-
     function changeCF(temp) {
         function setCelsius() {
             var cel = (temp - 32) * 5/9;
