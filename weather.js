@@ -17,6 +17,7 @@ function getIPInfo() {
             getWeather(weatherURL);
             $(".info").fadeIn(2000).html(iPDATA.city + ", " + iPDATA.country);
             $(".spinner").fadeOut(1000);
+
         }
     });
 }
@@ -37,14 +38,41 @@ function getWeather(URL) {
             $(".humidity span").fadeIn(2000).html(wDATA.currently.humidity);
             $(".visibility span").fadeIn(2000).html(wDATA.currently.visibility);
             $(".windspeed span").fadeIn(2000).html(wDATA.currently.windSpeed);
-            $(".temperature").fadeIn(2000).html(wDATA.currently.summary + "   <span class='badge'>" + wDATA.currently.temperature + " F</span>");
-
+            $(".temperature").fadeIn(2000).html(wDATA.currently.summary + "   <span class='temp badge'>" + wDATA.currently.temperature + " F</span>");
+            var temp =  wDATA.currently.temperature;
+            changeCF(temp);
         }
+
+
     });
 }
+
+///////////////////////////
+
+
+    function changeCF(temp) {
+        function setCelsius() {
+            var cel = (temp - 32) * 5/9;
+            return cel;
+        }
+        function setFahrenheit() {
+            return temp;
+        }
+
+        $('#tm').on("click", function () {
+            tm = $("#tm");
+            if(tm.val() == "C"){
+                $(tm).html("Fahrenheit").val("F");
+                $(".temp").html(setFahrenheit() + " F");
+            } else{
+                $(tm).html("Celsius").val("C");
+                $(".temp").html(setCelsius() + " C");
+            }
+        });
+    }
+
 // Initiate jQuery //
 
 $(document).ready(function(){
     getIPInfo();
-
 });
